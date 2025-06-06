@@ -1,0 +1,23 @@
+[
+    {"zona": "DESIERTO ABSOLUTO", "regiones": ["Región de Tarapacá", "Región de Antofagasta"], "latitud_s": 21.6, "longitud_w": 69.75},
+    {"zona": "DESIERTO ANDINO", "regiones": ["Región de Antofagasta", "Región de Atacama"], "latitud_s": 25.8, "longitud_w": 69.5},
+    {"zona": "DESIERTO COSTERO", "regiones": ["Región de Antofagasta", "Región de Atacama"], "latitud_s": 25.8, "longitud_w": 70.25},
+    {"zona": "DESIERTO FLORIDO", "regiones": ["Región de Atacama", "Región de Coquimbo"], "latitud_s": 29.35, "longitud_w": 70.5},
+    {"zona": "ALTIPLANO Y DE LA PUNA", "regiones": ["Región de Tarapacá", "Región de Antofagasta"], "latitud_s": 21.6, "longitud_w": 69.75},
+    {"zona": "ANDES MEDITERRÁNEOS", "regiones": ["Región de Coquimbo", "Región de Valparaíso", "Región Metropolitana", "Región del Maule"], "latitud_s": 33.33, "longitud_w": 71.15},
+    {"zona": "MATORRAL ESTEPARIO", "regiones": ["Región de Coquimbo", "Región de Valparaíso", "Región Metropolitana"], "latitud_s": 32.37, "longitud_w": 71.1},
+    {"zona": "MATORRAL Y DEL BOSQUE ESPINOSO", "regiones": ["Región de Valparaíso", "Región Metropolitana", "Región de O’Higgins", "Región del Maule"], "latitud_s": 34.46, "longitud_w": 70.85},
+    {"zona": "BOSQUE ESCLERÓFILO", "regiones": ["Región Metropolitana", "Región del Maule"], "latitud_s": 34.9, "longitud_w": 71.0},
+    {"zona": "BOSQUE CADUCIFOLIO MONTANO", "regiones": ["Región Metropolitana", "Región del Maule"], "latitud_s": 34.9, "longitud_w": 71.0},
+    {"zona": "BOSQUE CADUCIFOLIO DEL LLANO", "regiones": ["Región del Biobío", "Región de La Araucanía"], "latitud_s": 38.23, "longitud_w": 72.25},
+    {"zona": "BOSQUE CADUCIFOLIO ANDINO", "regiones": ["Región del Biobío", "Región de La Araucanía"], "latitud_s": 38.23, "longitud_w": 72.25},
+    {"zona": "BOSQUE LAURIFOLIO DE VALDIVIA", "regiones": ["Región de Los Lagos"], "latitud_s": 42.25, "longitud_w": 72.5},
+    {"zona": "BOSQUE LAURIFOLIO DEL ARCHIPIÉLAGO DE JUAN FERNÁNDEZ", "regiones": ["Región de Valparaíso"], "latitud_s": 33.65, "longitud_w": 78.82},
+    {"zona": "CORDILLERAS DE LA ARAUCANÍA", "regiones": ["Región del Biobío", "Región de La Araucanía", "Región de Los Lagos"], "latitud_s": 39.6, "longitud_w": 72.33},
+    {"zona": "CORDILLERAS PATAGÓNICAS", "regiones": ["Región de Aysén", "Región de Magallanes y Antártica Chilena"], "latitud_s": 49.63, "longitud_w": 71.0},
+    {"zona": "BOSQUE SIEMPREVERDE CON CONÍFERAS", "regiones": ["Región de Los Lagos", "Región de Aysén"], "latitud_s": 44.0, "longitud_w": 72.25},
+    {"zona": "BOSQUE SIEMPREVERDE MICRÓFILO", "regiones": ["Región de Aysén", "Región de Magallanes y Antártica Chilena"], "latitud_s": 49.63, "longitud_w": 71.0},
+    {"zona": "TURBERAS, DEL MATORRAL Y DE LA ESTEPA PANTANOSA", "regiones": ["Región de Aysén", "Región de Magallanes y Antártica Chilena"], "latitud_s": 49.63, "longitud_w": 71.0},
+    {"zona": "MATORRAL Y DE LA ESTEPA PATAGÓNICA DE AISÉN", "regiones": ["Región de Aysén"], "latitud_s": 45.75, "longitud_w": 72.0},
+    {"zona": "ESTEPA PATAGÓNICA DE MAGALLANES", "regiones": ["Región de Magallanes y Antártica Chilena"], "latitud_s": 53.5, "longitud_w": 70.0}
+]

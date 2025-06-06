@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Encuentra tu Flora Nativa</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: #f5f5f5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .tinder {
+      position: relative;
+      width: 100%;
+      max-width: 400px;
+      height: 70vh;
+    }
+
+    .tinder--card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      padding: 20px;
+      box-sizing: border-box;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .tinder--card h3 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    .tinder--card p {
+      margin-top: 10px;
+      font-size: 16px;
+      color: #555;
+    }
+
+    .tinder--buttons {
+      margin-top: 20px;
+      display: flex;
+      gap: 20px;
+    }
+
+    .tinder--buttons button {
+      background: none;
+      border: 2px solid #000;
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    #accepted-list {
+      display: none;
+      list-style: none;
+      padding: 0;
+      margin-top: 20px;
+    }
+
+    #accepted-list li {
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
+</head>
+<body>
+  <div class="tinder">
+    <div class="tinder--cards">
+      {% for p in profiles %}
+      <div class="tinder--card" data-name="{{p['name']}}">
+        <img src="{{p['img']}}" alt="">
+        <h3>{{p['name']}}</h3>
+        <p>{{p['description']}}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="tinder--buttons">
+    <button id="nope">✕</button>
+    <button id="love">❤</button>
+  </div>
+
+  <ul id="accepted-list"></ul>
+  <div style="margin-top: 30px;">
+    <a href="{{ url_for('geoloc') }}" style="
+      display: inline-block;
+      padding: 10px 20px;
+      background: black;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 16px;
+    ">← Volver</a>
+  </div>
+  <script>
+    const cardsContainer = document.querySelector('.tinder--cards');
+    const cards = Array.from(cardsContainer.children);
+    const loveBtn = document.getElementById('love');
+    const nopeBtn = document.getElementById('nope');
+    const acceptedList = document.getElementById('accepted-list');
+    let accepted = [];
+
+    function updateCards() {
+      const newCards = document.querySelectorAll('.tinder--card:not(.removed)');
+      newCards.forEach((card, i) => {
+        card.style.zIndex = cards.length - i;
+        card.style.transform = `scale(${1 - i * 0.05}) translateY(-${i * 10}px)`;
+        card.style.opacity = `${1 - i * 0.1}`;
+      });
+
+      if (!newCards.length) {
+        showAccepted();
+      }
+    }
+
+    function handleSwipe(card, isAccepted) {
+      card.classList.add('removed');
+      card.style.transform = `translate(${isAccepted ? '' : '-'}100vw, -50px) rotate(${isAccepted ? '' : '-'}20deg)`;
+      if (isAccepted) {
+        accepted.push(card.dataset.name);
+      }
+      setTimeout(updateCards, 300);
+    }
+
+    loveBtn.addEventListener('click', () => {
+      const card = document.querySelector('.tinder--card:not(.removed)');
+      if (card) handleSwipe(card, true);
+    });
+
+    nopeBtn.addEventListener('click', () => {
+      const card = document.querySelector('.tinder--card:not(.removed)');
+      if (card) handleSwipe(card, false);
+    });
+
+    cards.forEach(card => {
+      const hammer = new Hammer(card);
+      hammer.on('swipeleft', () => handleSwipe(card, false));
+      hammer.on('swiperight', () => handleSwipe(card, true));
+    });
+
+    function showAccepted() {
+      document.querySelector('.tinder').style.display = 'none';
+      document.querySelector('.tinder--buttons').style.display = 'none';
+      acceptedList.style.display = 'block';
+      accepted.forEach(name => {
+        const li = document.createElement('li');
+        li.textContent = name;
+        acceptedList.appendChild(li);
+      });
+    }
+
+    updateCards();
+  </script>
+</body>
+</html>
